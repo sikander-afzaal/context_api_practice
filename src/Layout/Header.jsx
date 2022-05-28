@@ -8,6 +8,8 @@ function Header() {
   const {
     cartState: { cart },
     dispatchCart,
+    dispatchFilter,
+    filterState: { search },
   } = useContext(AppContext);
   const [openDropDown, setOpenDropDown] = useState(false);
   return (
@@ -15,7 +17,13 @@ function Header() {
       <Link to={"/"} className="logo">
         ONLINE CART
       </Link>
-      <input type="text" />
+      <input
+        type="text"
+        value={search}
+        onChange={(e) => {
+          dispatchFilter({ type: "SEARCH_PRODUCT", payload: e.target.value });
+        }}
+      />
       <div className="cart-div">
         <div
           onClick={() => setOpenDropDown((prev) => !prev)}

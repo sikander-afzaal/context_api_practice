@@ -4,11 +4,14 @@ import { AppContext } from "../context/app-context";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 function Checkout() {
+  //state from the context
   const {
     cartState: { cart },
     dispatchCart,
   } = useContext(AppContext);
+  //temp component state
   const [Total, setTotal] = useState(0);
+  //use effect to check the new total every time cart updates
   useEffect(() => {
     let temp = 0;
     if (cart.length > 0) {
