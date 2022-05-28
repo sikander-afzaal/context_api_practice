@@ -1,0 +1,42 @@
+.checkout {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.left-checkout,
+.right-checkout {
+  flex: 0.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  flex-direction: column;
+  padding-inline: 20px;
+}
+.right-checkout {
+  background-color: lightgreen;
+  color: white;
+  font-size: 3rem;
+}
+.left-checkout {
+  background-color: lightcyan;
+  font-size: 2rem;
+  color: black;
+}
+.checkout-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+.checkout-item svg {
+  cursor: pointer;
+}
+.checkout-item img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid white;
+}

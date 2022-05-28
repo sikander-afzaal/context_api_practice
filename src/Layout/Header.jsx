@@ -3,6 +3,7 @@ import "./Header.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { AppContext } from "../context/app-context";
+import { Link } from "react-router-dom";
 function Header() {
   const {
     cartState: { cart },
@@ -11,7 +12,9 @@ function Header() {
   const [openDropDown, setOpenDropDown] = useState(false);
   return (
     <div className="header">
-      <h1 className="logo">ONLINE CART</h1>
+      <Link to={"/"} className="logo">
+        ONLINE CART
+      </Link>
       <input type="text" />
       <div className="cart-div">
         <div
@@ -26,22 +29,27 @@ function Header() {
             ? "Cart is Empty"
             : cart.map((prod) => {
                 return (
-                  <div className="drop-item">
-                    <img src={prod.thumbnail} alt="" />
-                    <h2>{prod.title}</h2>
-                    <p>{prod.price}</p>
-                    <FontAwesomeIcon
-                      icon={faTrash}
-                      onClick={() =>
-                        dispatchCart({
-                          type: "REMOVE_FROM_CART",
-                          payload: prod.id,
-                        })
-                      }
-                    />
-                  </div>
+                  <>
+                    <div className="drop-item">
+                      <img src={prod.thumbnail} alt="" />
+                      <h2>{prod.title}</h2>
+                      <p>{prod.price}</p>
+                      <FontAwesomeIcon
+                        icon={faTrash}
+                        onClick={() =>
+                          dispatchCart({
+                            type: "REMOVE_FROM_CART",
+                            payload: prod.id,
+                          })
+                        }
+                      />
+                    </div>
+                  </>
                 );
               })}
+          <Link onClick={() => setOpenDropDown(false)} to={"/checkout"}>
+            Checkout
+          </Link>
         </div>
       </div>
     </div>

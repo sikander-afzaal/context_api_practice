@@ -7,6 +7,16 @@ const reducer = (state, action) => {
         ...state,
         cart: state.cart.filter((elem) => elem.id !== action.payload), // every id not equal to the payload id should be returned
       };
+    case "CHANGE_QTY":
+      return {
+        ...state,
+        cart: state.cart.filter((elem) =>
+          elem.id === action.payload.id
+            ? (elem.qty = action.payload.newQty)
+            : elem.qty
+        ),
+      };
+
     default:
       return state;
   }

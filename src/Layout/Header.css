@@ -11,6 +11,7 @@
 .logo {
   color: white;
   font-size: 1.5rem;
+  text-decoration: none;
 }
 .header input {
   width: 50%;
@@ -80,6 +81,17 @@
 }
 .cart-drop-down h2 {
   font-size: 1.2rem;
+}
+.cart-drop-down a {
+  width: 90%;
+  height: 60px;
+  display: grid;
+  place-items: center;
+  text-decoration: none;
+  background-color: black;
+  color: white;
+  border: 2px solid white;
+  border-radius: 8px;
 }
 .open-drop {
   display: flex;
